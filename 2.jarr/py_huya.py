@@ -17,7 +17,6 @@ class Spider(Spider):
 	def homeContent(self,filter):
 		result = {}
 		cateManual = {
-			"音乐": "音乐",
 			"一起看": "一起看",
 			"三国杀": "三国杀",
 			"网游竞技": "网游竞技"
@@ -48,7 +47,7 @@ class Spider(Spider):
 			aid = (vod['roomId']).strip()
 			title = vod['roomName'].strip()
 			img = vod['roomPic'].strip()
-			remark = (vod['ownerName']).strip()
+			remark = (vod['categoryName']).strip()
 			videos.append({
 				"vod_id": aid,
 				"vod_name": title,
@@ -100,11 +99,10 @@ class Spider(Spider):
 		return result
 	def playerContent(self,flag,id,vipFlags):
 		result = {}
+
 		url = 'https://mp.huya.com/cache.php?m=Live&do=profileRoom&roomid={0}'.format(id)
 		rsp = self.fetch(url)
 		jRoot = json.loads(rsp.text)
-		if jRoot['data']['liveStatus'] != 'ON':
-			return {}
 		jo = jRoot['data']
 		ja = jo['stream']['baseSteamInfoList'][0]['sStreamName']
 		url = 'http://txtest-xp2p.p2p.huya.com/src/' + ja + '.xs?ratio=4000'

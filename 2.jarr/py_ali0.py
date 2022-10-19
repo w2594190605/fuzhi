@@ -8,7 +8,7 @@ import json
 import requests
 import time
 import re
-
+from lxml import etree
 
 class Spider(Spider):  # 元类 默认的元类 type
     def getName(self):
@@ -399,17 +399,19 @@ class Spider(Spider):  # 元类 默认的元类 type
             rsp = requests.post(url, json=params, headers=newHeader)
             jo = json.loads(rsp.text)
             ja = jo['items']
+            if dirname != '':
+                dirname = '[' + dirname + ']'
             for jt in ja:
                 if jt['type'] == 'folder':
                     al = jt['file_id'] + '@@@' + jt['name']
                     arrayList.append(al)
                 else:
                     if 'video' in jt['mime_type'] or 'video' in jt['category']:
-                        repStr = '[' + dirname + ']' + jt['name'].replace("#", "_").replace("$", "_").replace(jt['file_extension'], '')[0:-1]
+                        repStr = dirname + jt['name'].replace("#", "_").replace("$", "_").replace(jt['file_extension'], '')[0:-1]
                         map[repStr] = shareId + "+" + shareToken + "+" + jt['file_id'] + "+" + jt['category'] + "+"
                     elif 'others' == jt['category'] and (
                             'srt' == jt['file_extension'] or 'ass' == jt['file_extension']):
-                        repStr = '[' + dirname + ']' + jt['name'].replace("#", "_").replace("$", "_").replace(jt['file_extension'], '')[0:-1]
+                        repStr = dirname + jt['name'].replace("#", "_").replace("$", "_").replace(jt['file_extension'], '')[0:-1]
                         subtitle[repStr] = jt['file_id']
             maker = jo['next_marker']
             i = i + 1
@@ -429,8 +431,16 @@ class Spider(Spider):  # 元类 默认的元类 type
         self.localTime = int(time.time())
         url = 'https://api.aliyundrive.com/token/refresh'
         if len(self.authorization) == 0 or self.timeoutTick - self.localTime <= 600:
+            header = {
+                "User-Agent": "Mozilla/5.0 (Linux; Android 4.4.2; Nexus 4 Build/KOT49H) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.114 Mobile Safari/537.36",
+                "Referer": "https://txtpad.cn/Token/"
+            }
+            rsp = requests.post("https://a6.qikekeji.com/txt/data/detail?txt_name=Token",headers=header)
+            content = rsp.text
+            jo = json.loads(content)['data']['txt_content']
+            token = json.loads(jo)[0]['content']
             form = {
-                'refresh_token': 'ab0b9a7555e84175bbc6f8e60310ae49'
+                'refresh_token': token
             }
             rsp = requests.post(url, json=form, headers=self.header)
             jo = json.loads(rsp.text)
