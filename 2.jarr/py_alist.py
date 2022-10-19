@@ -6,6 +6,7 @@ from base.spider import Spider
 import json
 import re
 import urllib
+import difflib
 
 class Spider(Spider):  # 元类 默认的元类 type
     def getName(self):
@@ -24,24 +25,30 @@ class Spider(Spider):  # 元类 默认的元类 type
     def homeContent(self, filter):
         result = {}
         cateManual = {
-"灭火器":"https://alist1.owen10086.repl.co",
-"资源小站": "https://960303.xyz/",
-"菊花盘": "https://pan.142856.xyz",
-"轻弹浅唱": "https://g.xiang.lol",
-"🚆资源小站":"https://pan.142856.xyz",
-"🌤晴园的宝藏库":"https://alist.52qy.repl.co",
-"米奇妙妙屋":"https://anime.mqmmw.ga",
-"小兵组网盘影视":"https://6vv.app",
-
-"🐋一只鱼":"https://alist.youte.ml",
-"七米蓝":"https://al.chirmyram.com",
-
-"🥼帅盘":"https://hi.shuaipeng.wang",
-"🐉神族九帝":"https://alist.shenzjd.com",
-
-"大人":"https://drive.9t.ee",
-"大人番":"https://www.kugutsu.ml"
-}
+            "Disk": "http://124.222.140.243:8080",
+            "一只魚": "https://alist.youte.ml",
+            "七米藍": "https://al.chirmyram.com",
+            "姬路白雪": "https://pan.jlbx.xyz",
+            "小兵": "https://6vv.app",
+            "小江": "https://dyj.me",
+            "小鴨": "http://43.139.29.179:5244",
+            "帥鵬": "https://hi.shuaipeng.wang",
+            "星夢": "https://pan.bashroot.top",
+            "晴園": "https://alist.52qy.repl.co",
+            "木偶": "https://www.kugutsu.ml",
+            "梓澪": "https://xn--i0v44m.xyz",
+            "浩瀚吧": "https://8023.haohanba.cn",
+            "神族九帝": "https://alist.shenzjd.com",
+            "秋雨": "https://share.laowang.me",
+            "米奇": "https://anime.mqmmw.ga",
+            "菊花": "https://pan.142856.xyz",
+            "觸光": "https://pan.ichuguang.com",
+            "資源小站": "https://960303.xyz",
+            "輕彈淺唱": "https://g.xiang.lol",
+            "Adult": "https://drive.9t.ee",
+            "kugutsu":"https://www.kugutsu.ml",
+            "雲播放": "https://quanzi.laoxianghuijia.cn"
+        }
         classes = []
         for k in cateManual:
             classes.append({
@@ -55,7 +62,7 @@ class Spider(Spider):  # 元类 默认的元类 type
             for lk in cateManual:
                 link = cateManual[lk]
                 filters.update({
-                    link: [{"key": "nm", "name": "名        称", "value": [{"n": "正序", "v": "False"},{"n": "反序", "v": "True"}]},{"key": "sz", "name": "大        小", "value": [{"n": "升序", "v": "False"},{"n": "降序", "v": "True"}]},{"key": "tp", "name": "类        型", "value": [{"n": "升序", "v": "False"},{"n": "降序", "v": "True"}]},{"key": "tm", "name": "修改时间", "value": [{"n": "升序", "v": "False"},{"n": "降序", "v": "True"}]}]
+                    link: [{"key": "nm", "name": "名        称", "value": [{"n": "复位", "v": ""},{"n": "正序", "v": "False"},{"n": "反序", "v": "True"}]},{"key": "sz", "name": "大        小", "value": [{"n": "复位", "v": ""},{"n": "升序", "v": "False"},{"n": "降序", "v": "True"}]},{"key": "tp", "name": "类        型", "value": [{"n": "复位", "v": ""},{"n": "升序", "v": "False"},{"n": "降序", "v": "True"}]},{"key": "tm", "name": "修改时间", "value": [{"n": "复位", "v": ""},{"n": "升序", "v": "False"},{"n": "降序", "v": "True"}]}]
                 })
             result['filters'] = filters
         return result
@@ -109,28 +116,28 @@ class Spider(Spider):  # 元类 默认的元类 type
             vodList = jo['data']['content']
         ovodList = vodList
         if len(extend) != 0:
-            if 'tp' in extend:
+            if 'tp' in extend and extend['tp'] != '':
                 fl = 'type'
                 if extend['tp'] == "True":
                     key = True
                 if extend['tp'] == "False":
                     key = False
                 vodList.sort(key=lambda x: (x['{0}'.format(fl)]), reverse=key)
-            elif 'sz' in extend:
+            elif 'sz' in extend and extend['sz'] != '':
                 fl = 'size'
                 if extend['sz'] == "True":
                     key = True
                 if extend['sz'] == "False":
                     key = False
                 vodList.sort(key=lambda x: (x['{0}'.format(fl)]), reverse=key)
-            elif 'nm' in extend:
+            elif 'nm' in extend and extend['nm'] != '':
                 fl = 'name'
                 if extend['nm'] == "True":
                     key = True
                 if extend['nm'] == "False":
                     key = False
                 vodList.sort(key=lambda x: (x['{0}'.format(fl)]), reverse=key)
-            elif 'tm' in extend:
+            elif 'tm' in extend and extend['tm'] != '':
                 if ver == 2:
                     fl = 'updated_at'
                 elif ver == 3:
@@ -149,7 +156,8 @@ class Spider(Spider):  # 元类 默认的元类 type
         purl = ''
         svodList = str(vodList)
         lenvodList = len(vodList)
-        substr = str(re.findall(r"\'name\': \'(.*?)\'", svodList))
+        nameList = re.findall(r"\'name\': \'(.*?)\'", svodList)
+        substr = str(nameList)
         foldernum = svodList.count('\'type\': 1')
         filenum = lenvodList - foldernum
         for vod in vodList:
@@ -191,92 +199,68 @@ class Spider(Spider):  # 元类 默认的元类 type
                 cid = baseurl + aid + vod['name']
                 # 开始爬视频与字幕
                 if filenum < 150:
-                    if 'mp4' in vod['name'] or 'mkv' in vod['name'] or 'TS' in vod['name'] or 'flv' in vod['name'] or 'rmvb' in vod['name'] or 'mp3' in vod['name'] or 'flac' in vod['name'] or 'wav' in vod['name'] or 'wma' in vod['name'] or 'dff' in vod['name']:
+                    if vod['name'].endswith('.mp4') or vod['name'].endswith('.mkv') or vod['name'].endswith('.ts') or vod['name'].endswith('.TS') or vod['name'].endswith('.avi') or vod['name'].endswith('.flv') or vod['name'].endswith('.rmvb') or vod['name'].endswith('.mp3') or vod['name'].endswith('.flac') or vod['name'].endswith('.wav') or vod['name'].endswith('.wma') or vod['name'].endswith('.dff'):
                         vodurl = vod['name']
                         # 开始爬字幕
                         cid = '###'
                         subname = re.findall(r"(.*)\.", vod['name'])[0]
                         if filenum == 2:
                             if '.ass' in substr:
-                                sub = re.findall(r"'(.*)\.ass", substr)[0]
-                                subt = '@@@' + sub + '.ass'
-                                if ',' in sub:
-                                    sub = re.findall(r"', '(.*)\.ass", substr)[0]
-                                    subt = '@@@' + sub + '.ass'
+                                sub = difflib.get_close_matches('.ass', nameList, 1, cutoff=0.1)
+                                if len(sub) != 0:
+                                    sub = sub[0]
+                                else:
+                                    sub = ''
+                                if sub.endswith('.ass'):
+                                    subt = '@@@' + sub
                             if '.srt' in substr:
-                                sub = re.findall(r"'(.*)\.srt", substr)[0]
-                                subt = '@@@' + sub + '.srt'
-                                if ',' in sub:
-                                    sub = re.findall(r"', '(.*)\.srt", substr)[0]
-                                    subt = '@@@' + sub + '.srt'
+                                sub = difflib.get_close_matches('.srt', nameList, 1, cutoff=0.1)
+                                if len(sub) != 0:
+                                    sub = sub[0]
+                                else:
+                                    sub = ''
+                                if sub.endswith('.srt'):
+                                    subt = '@@@' + sub
                         else:
                             if '.ass' in substr:
-                                if '(' in subname or ')' in subname or '[' in subname or ']' in subname:
-                                    subname = subname.replace("(","\(").replace(")","\)").replace("[","\[").replace("]","\]")
-                                sub = re.findall(r"{0}.*?\.ass".format(subname), substr)
+                                sub = difflib.get_close_matches('{0}.ass'.format(subname), nameList, 1, cutoff=0.1)
                                 if len(sub) != 0:
                                     sub = sub[0]
                                 else:
                                     sub = ''
-                                if ',' in sub:
-                                    lsub = sub.replace('\'',"").split(', ')
-                                    sub = lsub[len(lsub)-1]
-                                if '(' in subname or ')' in subname or '[' in subname or ']' in subname:
-                                    ssubname = subname.replace("\(","(").replace("\)",")").replace("\[","[").replace("\]","]")
-                                if subname in sub:
+                                if subname in sub and sub.endswith('.ass'):
                                     subt = '@@@' + sub
                             elif '.srt' in substr:
-                                if '(' in subname or ')' in subname or '[' in subname or ']' in subname:
-                                    subname = subname.replace("(","\(").replace(")","\)").replace("[","\[").replace("]","\]")
-                                sub = re.findall(r'{0}.*?\.srt'.format(subname), substr)
+                                sub = difflib.get_close_matches('{0}.srt'.format(subname), nameList, 1, cutoff=0.1)
                                 if len(sub) != 0:
                                     sub = sub[0]
                                 else:
                                     sub = ''
-                                if ',' in sub:
-                                    lsub = sub.replace('\'',"").split(', ')
-                                    sub = lsub[len(lsub)-1]
-                                if '(' in subname or ')' in subname or '[' in subname or ']' in subname:
-                                    subname = subname.replace("\(","(").replace("\)",")").replace("\[","[").replace("\]","]")
-                                if subname in sub:
+                                if subname in sub and sub.endswith('.srt'):
                                     subt = '@@@' + sub
                         # 合并链接
                         if 'subt' in locals().keys():
-                            purl = purl + '{0}{1}#'.format(vodurl, subt)
+                            purl = purl + '{0}{1}##'.format(vodurl, subt)
                         else:
-                            purl = purl + '{0}#'.format(vodurl)
+                            purl = purl + '{0}##'.format(vodurl)
                 else:
                     subname = re.findall(r"(.*)\.", vod['name'])[0]
                     if '.ass' in substr:
-                        if '(' in subname or ')' in subname or '[' in subname or ']' in subname:
-                            subname = subname.replace("(","\(").replace(")","\)").replace("[","\[").replace("]","\]")
-                        sub = re.findall(r"{0}.*?\.ass".format(subname), substr)
+                        sub = difflib.get_close_matches('{0}.ass'.format(subname), nameList, 1, cutoff=0.1)
                         if len(sub) != 0:
                             sub = sub[0]
                         else:
                             sub = ''
-                        if ',' in sub:
-                            lsub = sub.replace('\'', "").split(', ')
-                            sub = lsub[len(lsub) - 1]
-                        if '(' in subname or ')' in subname or '[' in subname or ']' in subname:
-                            subname = subname.replace("\(","(").replace("\)",")").replace("\[","[").replace("\]","]")
-                        if subname in sub:
+                        if subname in sub and sub.endswith('.ass'):
                             subt = '@@@' + sub
                             cid = cid + subt
                     elif '.srt' in substr:
-                        if '(' in subname or ')' in subname or '[' in subname or ']' in subname:
-                            subname = subname.replace("(","\(").replace(")","\)").replace("[","\[").replace("]","\]")
-                        sub = re.findall(r"{0}.*?\.srt".format(subname), substr)
+                        sub = difflib.get_close_matches('{0}.srt'.format(subname), nameList, 1, cutoff=0.1)
                         if len(sub) != 0:
                             sub = sub[0]
                         else:
                             sub = ''
-                        if ',' in sub:
-                            lsub = sub.replace('\'', "").split(', ')
-                            sub = lsub[len(lsub) - 1]
-                        if '(' in subname or ')' in subname or '[' in subname or ']' in subname:
-                            subname = subname.replace("\(","(").replace("\)",")").replace("\[","[").replace("\]","]")
-                        if subname in sub:
+                        if subname in sub and sub.endswith('.srt'):
                             subt = '@@@' + sub
                             cid = cid + subt
             videos.append({
@@ -294,8 +278,8 @@ class Spider(Spider):  # 元类 默认的元类 type
         result['list'] = videos
         result['page'] = 1
         result['pagecount'] = 1
-        result['limit'] = 999
-        result['total'] = 999999
+        result['limit'] = lenvodList
+        result['total'] = lenvodList
         return result
 
     def detailContent(self, array):
@@ -303,21 +287,21 @@ class Spider(Spider):  # 元类 默认的元类 type
         if '+++' in id:
             ids = id.split('+++')
             durl = ids[0]
-            vsList = ids[1].strip('#').split('#')
+            vsList = ids[1].strip('##').split('##')
             vsurl = ''
             for vs in vsList:
                 if '@@@' in vs:
                     dvs = vs.split('@@@')
-                    vname = dvs[0]
-                    vurl = durl + dvs[0]
-                    surl = durl + dvs[1]
+                    vname = dvs[0].replace('#','-')
+                    vurl = durl + dvs[0].replace('#','---')
+                    surl = durl + dvs[1].replace('#','---')
                     vsurl = vsurl + '{0}${1}@@@{2}#'.format(vname, vurl, surl)
                 else:
-                    vurl = durl + vs
-                    vsurl = vsurl + '{0}${1}#'.format(vs, vurl)
+                    vurl = durl + vs.replace('#','---')
+                    vsurl = vsurl + '{0}${1}#'.format(vs.replace('#','-'), vurl)
             url = vsurl
         else:
-            durl = id
+            durl = id.replace('#','-')
         if self.ver == '' or self.baseurl == '':
             self.getVersion(durl)
         baseurl = self.baseurl
@@ -325,7 +309,7 @@ class Spider(Spider):  # 元类 默认的元类 type
             vid = durl.replace(baseurl, "").strip('/')
         else:
             vid = durl.replace(re.findall(r".*/", durl)[0], "")
-            url = vid + '$' + id
+            url = vid + '$' + id.replace('#','---')
         vod = {
             "vod_id": vid,
             "vod_name": vid,
@@ -351,6 +335,7 @@ class Spider(Spider):  # 元类 默认的元类 type
         result = {}
         url = ''
         subturl = ''
+        id = id.replace('---','#')
         ifsub = '@@@' in id
         if ifsub is True:
             ids = id.split('@@@')
@@ -432,7 +417,6 @@ class Spider(Spider):  # 元类 默认的元类 type
             url = url.replace(vfileName, urlvfileName)
             if driver == 'Baidu.Disk':
                 result["header"] = {"User-Agent": "pan.baidu.com"}
-
         result["parse"] = 0
         result["playUrl"] = ''
         result["url"] = url
