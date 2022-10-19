@@ -1,4 +1,5 @@
-Object.assign = function () {
+if (typeof Object.assign != 'function') {
+    Object.assign = function () {
 	var target = arguments[0];
     for (var i = 1; i < arguments.length; i++) {
         var source = arguments[i];
@@ -10,15 +11,18 @@ Object.assign = function () {
     }
     return target;
 };
-var muban = {
+}
+
+var mubanDict = { // 模板字典
  mxpro:{
     title:'',
     host:'',
     // homeUrl:'/',
     url:'/vodshow/fyclass--------fypage---.html',
     searchUrl:'/vodsearch/**----------fypage---.html',
-    searchable:0,//是否启用全局搜索,
+    searchable:2,//是否启用全局搜索,
     quickSearch:0,//是否启用快速搜索,
+    filterable:0,//是否启用分类筛选,
     headers:{//网站的请求头,完整支持所有的,常带ua和cookies
         'User-Agent':'MOBILE_UA',
         // "Cookie": "searchneed=ok"
@@ -38,8 +42,9 @@ var muban = {
     host:'',
     url:'/vodshow/fyclass--------fypage---/',
     searchUrl:'/vodsearch/**----------fypage---.html',
-    searchable:0,//是否启用全局搜索,
+    searchable:2,//是否启用全局搜索,
     quickSearch:0,//是否启用快速搜索,
+    filterable:0,//是否启用分类筛选,
     headers:{//网站的请求头,完整支持所有的,常带ua和cookies
         'User-Agent':'MOBILE_UA',
         // "Cookie": "searchneed=ok"
@@ -59,13 +64,15 @@ var muban = {
     host:'',
     url:'/list/fyclass-fypage.html',
     searchUrl:'/vodsearch/**----------fypage---.html',
-    searchable:0,
-    quickSearch:0,
+    searchable:2,//是否启用全局搜索,
+    quickSearch:0,//是否启用快速搜索,
+    filterable:0,//是否启用分类筛选,
     headers:{
         'User-Agent':'UC_UA',
         // "Cookie": ""
     },
-    class_parse:'.stui-header__menu li:gt(0):lt(7);a&&Text;a&&href;/(\\d+).html',
+    // class_parse:'.stui-header__menu li:gt(0):lt(7);a&&Text;a&&href;/(\\d+).html',
+    class_parse:'.stui-header__menu li:gt(0):lt(7);a&&Text;a&&href;.*/(.*?).html',
     play_parse:true,
     lazy:'',
     limit:6,
@@ -73,15 +80,18 @@ var muban = {
     double:true, // 推荐内容是否双层定位
     一级:'.stui-vodlist li;a&&title;a&&data-original;.pic-text&&Text;a&&href',
     二级:{"title":".stui-content__detail .title&&Text;.stui-content__detail p:eq(-2)&&Text","img":".stui-content__thumb .lazyload&&data-original","desc":".stui-content__detail p:eq(0)&&Text;.stui-content__detail p:eq(1)&&Text;.stui-content__detail p:eq(2)&&Text","content":".detail&&Text","tabs":".stui-vodlist__head h3","lists":".stui-content__playlist:eq(#id) li"},
-    搜索:'#searchList li;a&&title;.lazyload&&data-original;.text-muted&&Text;a&&href;.text-muted:eq(-1)&&Text',
+    搜索:'ul.stui-vodlist__media:eq(0) li,ul.stui-vodlist:eq(0) li,#searchList li;a&&title;.lazyload&&data-original;.text-muted&&Text;a&&href;.text-muted:eq(-1)&&Text',
+    搜索1:'ul.stui-vodlist&&li;a&&title;.lazyload&&data-original;.text-muted&&Text;a&&href;.text-muted:eq(-1)&&Text',
+    搜索2:'ul.stui-vodlist__media&&li;a&&title;.lazyload&&data-original;.text-muted&&Text;a&&href;.text-muted:eq(-1)&&Text',
 },
 vfed:{
     title:'',
     host:'',
     url:'/index.php/vod/show/id/fyclass/page/fypage.html',
     searchUrl:'/index.php/vod/search/page/fypage/wd/**.html',
-    searchable:0,
-    quickSearch:0,
+    searchable:2,//是否启用全局搜索,
+    quickSearch:0,//是否启用快速搜索,
+    filterable:0,//是否启用分类筛选,
     headers:{
         'User-Agent':'UC_UA',
     },
@@ -106,6 +116,7 @@ vfed:{
     },
     timeout:5000,
     class_parse:'body&&.hl-nav li:gt(0);a&&Text;a&&href;.*/(.*?).html',
+    cate_exclude:'明星|专题|最新|排行',
     limit:40,
     play_parse:true,
     lazy:'',
@@ -114,8 +125,9 @@ vfed:{
     一级:'.hl-vod-list&&.hl-list-item;a&&title;a&&data-original;.remarks&&Text;a&&href',
     二级:{"title":".hl-infos-title&&Text;.hl-text-conch&&Text","img":".hl-lazy&&data-original","desc":".hl-infos-content&&.hl-text-conch&&Text","content":".hl-content-text&&Text","tabs":".hl-tabs&&a","lists":".hl-plays-list:eq(#id)&&li"},
     搜索:'.hl-list-item;a&&title;a&&data-original;.remarks&&Text;a&&href',
-    searchable:1,
-    quickSearch:1,
+    searchable:2,//是否启用全局搜索,
+    quickSearch:0,//是否启用快速搜索,
+    filterable:0,//是否启用分类筛选,
 },
 海螺2:{
     title:'',
@@ -135,9 +147,12 @@ vfed:{
     一级:'.list-a&&li;a&&title;.lazy&&data-original;.list-remarks&&Text;a&&href',
     二级:{"title":"h2&&Text;.deployment&&Text","img":".lazy&&data-original","desc":".deployment&&Text","content":".ec-show&&Text","tabs":"#tag&&a","lists":".play_list_box:eq(#id)&&li"},
     搜索:'.search-list;a&&title;.lazy&&data-original;.deployment&&Text;a&&href',
-    searchable:1,
-    quickSearch:1,
+    searchable:2,//是否启用全局搜索,
+    quickSearch:0,//是否启用快速搜索,
+    filterable:0,//是否启用分类筛选,
 },
 
 
 };
+var muban = JSON.parse(JSON.stringify(mubanDict));
+export default muban;

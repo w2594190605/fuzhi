@@ -5,6 +5,7 @@ var rule = {
     url:'/list/mip-data?typeId=fyclass&page=fypage&callback=',
     detailUrl:'/play/fyid',
     searchUrl:'/search/index?key=**',
+    searchable:2,
     headers:{
         'User-Agent':'MOBILE_UA'
     },
@@ -22,6 +23,4 @@ var rule = {
     一级:'json:data.items;name;image;duration_string;video_id',
     二级:'*',
     搜索:'.list-con&&.items;.text&&Text;mip-img&&src;.time&&Text;a&&href',
-    searchable:1,
-    quickSearch:0,
 }
