@@ -1,0 +1,66 @@
+手机安装termux教程，按照数字1-12顺序步骤安装如下:
+
+1.更新源
+pkg update
+
+更新出错解决，出错才用，
+pkg remove game-repo
+pkg remove science-repo
+pkg update
+
+2.安装系统
+pkg install proot-distro
+
+2.1列出所有系统 -- 2.1选择版本可以忽略2.1步骤。
+proot-distro list 
+
+3.安装 ubuntu
+proot-distro install ubuntu
+
+4.登录 ubuntu
+proot-distro login ubuntu
+
+5.更新软件
+apt update
+apt upgrade
+
+6.安装软件
+apt install python3
+apt install python3-pip
+apt install git
+
+7.拉取项目
+git clone https://github.com/sec-an/TV_Spider.git sp&&cd sp
+
+8.安装 curl
+apt install curl
+
+9.运行脚本
+curl -sS https://bootstrap.pypa.io/get-pip.py | python3
+
+10.安装依赖
+pip install -r requirements.txt
+
+11.运行
+gunicorn -w 4 -b 0.0.0.0:8080 app:app
+
+12.本机测试--局域网测试请获取当前手机IP+端口
+http://127.0.0.1:8080/vod?sites=all
+
+======================================================
+
+获取储存权限
+termux-setup-storage
+
+更新命令
+cd sp目录
+然后git pull
+有新依赖就执行 pip install -r requirements.txt
+拉取的项目不要有改动才能拉取
+
+重启后运行
+proot-distro login ubuntu
+
+cd sp
+
+gunicorn -w 4 -b 0.0.0.0:8080 app:app

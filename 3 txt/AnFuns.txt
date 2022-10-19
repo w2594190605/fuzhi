@@ -1,0 +1,1 @@
+{"class":[{"type_id":"1","type_name":"新旧番剧"},{"type_id":"2","type_name":"蓝光无修"},{"type_id":"3","type_name":"动漫剧场"},{"type_id":"4","type_name":"欧美动漫"}],"list":[],"no_use":{"code":1,"limit":30,"msg":"数据列表","now_count":0,"page":1,"pagecount":0,"total":0}}
