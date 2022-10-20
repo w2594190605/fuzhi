@@ -38,7 +38,7 @@
             "name": "🐞酷云七七",
             "type": 3,
             "api": "csp_Kunyu77",
-            "jar": "https://github.com/w2594190605/fuzhi/raw/main/2.jarr/ts0829.jar"
+            "ext": "https://github.com/w2594190605/fuzhi/raw/main/2.jarr/ts0829.jar"
         },
         {
             "key": "csp_Kunyu77",
@@ -48,7 +48,7 @@
             "searchable": 1,
             "quickSearch": 1,
             "filterable": 1,
-            "jar": "https://github.com/w2594190605/fuzhi/raw/main/2.jarr/ts0829.jar"
+            "ext": "https://github.com/w2594190605/fuzhi/raw/main/2.jarr/ts0829.jar"
         },
         {
             "key": "csp_Czsapp",
@@ -143,7 +143,7 @@
         },
         {
             "key": "csp_Bili",
-            "name": "🅱哔哩套餐",
+            "name": "🅱哔哩",
             "type": 3,
             "api": "csp_Bili",
             "ext": "https://raw.githubusercontent.com/w2594190605/fuzhi/main/1/哔哩.json"
@@ -212,8 +212,8 @@
             "searchable": 0,
             "quickSearch": 0,
             "filterable": 0,
-            "jar": "https://github.com/w2594190605/fuzhi/raw/main/2.jarr/sq.jar",
-            "ext": "https://神器每日推送.tk/XYQxb/聚合短视频.js"
+            "ext": "https://github.com/w2594190605/fuzhi/raw/main/2.jarr/sq.jar"
+           
         },
         {
             "key": "csp_XYQBiu_虎牙代理直链",
@@ -223,8 +223,8 @@
             "searchable": 0,
             "quickSearch": 0,
             "filterable": 0,
-            "jar": "https://github.com/w2594190605/fuzhi/raw/main/2.jarr/sq.jar",
-            "ext": "https://神器每日推送.tk/XYQxb/虎牙代理直链.json"
+            "ext": "https://github.com/w2594190605/fuzhi/raw/main/2.jarr/sq.jar"
+           
         },
         {
             "key": "csp_XYQBiu_凌云视频国内",
@@ -234,8 +234,8 @@
             "searchable": 1,
             "quickSearch": 1,
             "filterable": 0,
-            "jar": "https://github.com/w2594190605/fuzhi/raw/main/2.jarr/sq.jar",
-            "ext": "https://神器每日推送.tk/XYQxb/凌云视频国内.json"
+            "ext": "https://github.com/w2594190605/fuzhi/raw/main/2.jarr/sq.jar"
+          
         },
         {
             "key": "csp_XYQBiu_凌云视频韩国",
@@ -245,8 +245,8 @@
             "searchable": 1,
             "quickSearch": 1,
             "filterable": 0,
-            "jar": "https://github.com/w2594190605/fuzhi/raw/main/2.jarr/sq.jar",
-            "ext": "https://神器每日推送.tk/XYQxb/凌云视频韩国.json"
+            "jar": "https://github.com/w2594190605/fuzhi/raw/main/2.jarr/凌云视频韩国.json"
+      
         },
         {
             "key": "csp_Alist",
@@ -256,7 +256,7 @@
             "searchable": 0,
             "quickSearch": 0,
             "filterable": 0,
-            "ext": "https://drive.9t.ee"
+            "ext": "https://github.com/w2594190605/fuzhi/raw/main/2.jarr/Alist.jar"
         },
         {
             "key": "T4",
@@ -333,8 +333,8 @@
             "searchable": 1,
             "quickSearch": 1,
             "filterable": 1,
-            "ext": "http://dlj.bz/uqcLKK",
-            "jar": "http://dlj.bz/EaaZAQ"
+            "ext": "http://dlj.bz/uqcLKK"
+            
         },
         {
             "key": "push_agent",
@@ -344,8 +344,8 @@
             "searchable": 0,
             "quickSearch": 0,
             "filterable": 0,
-            "ext": "4acb3ad2f2254ba1b566279f7cd98ba3",
-            "jar": "http://dlj.bz/EaaZAQ"
+            "ext": "4acb3ad2f2254ba1b566279f7cd98ba3"
+            
         }
     ],
     "parses": [
