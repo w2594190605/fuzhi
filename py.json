@@ -146,63 +146,63 @@
             "name": "🅱哔哩",
             "type": 3,
             "api": "csp_Bili",
-            "ext": "https://raw.githubusercontent.com/w2594190605/fuzhi/main/1/哔哩.json"
+            "ext": "https://github.com/w2594190605/fuzhi/raw/main/2.jarr/哔哩.json"
         },
         {
             "key": "csp_voflix",
             "name": "🍀Voflix(XB)",
             "type": 3,
             "api": "csp_XBiubiu",
-            "ext": "https://raw.githubusercontent.com/w2594190605/fuzhi/main/1/MeowXB/voflix.json"
+            "ext": "https://github.com/w2594190605/fuzhi/raw/main/2.jarr/voflix.json"
         },
         {
             "key": "csp_花猫TV",
             "name": "🍀花猫TV(XB)",
             "type": 3,
             "api": "csp_XBiubiu",
-            "ext": "https://raw.githubusercontent.com/w2594190605/fuzhi/main/1/MeowXB/花猫TV.json"
+            "ext": "https://raw.githubusercontent.com/w2594190605/fuzhi/main/1/花猫TV.json"
         },
         {
             "key": "csp_六度TV",
             "name": "🍀六度TV(XB)",
             "type": 3,
             "api": "csp_XBiubiu",
-            "ext": "https://raw.githubusercontent.com/w2594190605/fuzhi/main/1/MeowXB/六度TV.json"
+            "ext": "https://raw.githubusercontent.com/w2594190605/fuzhi/main/1/六度TV.json"
         },
         {
             "key": "csp_xpath_saohuo",
             "name": "💢骚火电影(XP)",
             "type": 3,
             "api": "csp_XPath",
-            "ext": "https://raw.githubusercontent.com/w2594190605/fuzhi/main/1/MeowXP/saohuotv.json"
+            "ext": "https://raw.githubusercontent.com/w2594190605/fuzhi/main/1/saohuotv.json"
         },
         {
             "key": "csp_xpath_ddg",
             "name": "💢达达龟(XPF)",
             "type": 3,
             "api": "csp_XPathMacFilter",
-            "ext": "https://raw.githubusercontent.com/w2594190605/fuzhi/main/1/MeowXP/dadagui.json"
+            "ext": "https://raw.githubusercontent.com/w2594190605/fuzhi/main/1/dadagui.json"
         },
         {
             "key": "csp_xpath_jbb",
             "name": "💢剧白白(XPF)",
             "type": 3,
             "api": "csp_XPathMacFilter",
-            "ext": "https://raw.githubusercontent.com/w2594190605/fuzhi/main/1/MeowXP/jubaibai.json"
+            "ext": "https://raw.githubusercontent.com/w2594190605/fuzhi/main/1/jubaibai.json"
         },
         {
             "key": "csp_xpath_nmys",
             "name": "💢工农影视(XPF)",
             "type": 3,
             "api": "csp_XPathFilter",
-            "ext": "https://raw.githubusercontent.com/w2594190605/fuzhi/main/1/MeowXP/nmys2.json"
+            "ext": "https://raw.githubusercontent.com/w2594190605/fuzhi/main/1/nmys2.json"
         },
         {
             "key": "csp_xp_cokemv",
             "name": "💢Cokemv(XPF)",
             "type": 3,
             "api": "csp_XPathFilter",
-            "ext": "https://raw.githubusercontent.com/w2594190605/fuzhi/main/1/MeowXP/cokemv.json"
+            "ext": "https://raw.githubusercontent.com/w2594190605/fuzhi/main/1/cokemv.json"
         },
         {
             "key": "csp_XYQBiu_聚合短视频",
@@ -223,7 +223,7 @@
             "searchable": 0,
             "quickSearch": 0,
             "filterable": 0,
-            "ext": "https://github.com/w2594190605/fuzhi/raw/main/2.jarr/sq.jar"
+            "ext": "https://raw.githubusercontent.com/w2594190605/fuzhi/main/1/sq.jar"
            
         },
         {
@@ -234,7 +234,7 @@
             "searchable": 1,
             "quickSearch": 1,
             "filterable": 0,
-            "ext": "https://github.com/w2594190605/fuzhi/raw/main/2.jarr/sq.jar"
+            "ext": "https://raw.githubusercontent.com/w2594190605/fuzhi/main/1/sq.jar"
           
         },
         {
@@ -245,7 +245,7 @@
             "searchable": 1,
             "quickSearch": 1,
             "filterable": 0,
-            "jar": "https://github.com/w2594190605/fuzhi/raw/main/2.jarr/凌云视频韩国.json"
+            "jar": "https://raw.githubusercontent.com/w2594190605/fuzhi/main/1/凌云视频韩国.json"
       
         },
         {
@@ -256,7 +256,7 @@
             "searchable": 0,
             "quickSearch": 0,
             "filterable": 0,
-            "ext": "https://github.com/w2594190605/fuzhi/raw/main/2.jarr/Alist.jar"
+            "ext": "https://raw.githubusercontent.com/w2594190605/fuzhi/main/1/Alist.jar"
         },
         {
             "key": "T4",
