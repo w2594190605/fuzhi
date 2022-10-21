@@ -14,7 +14,59 @@
             ]
         }
     ],
-    "sites": [
+    "sites": [     {key:'77',name:'77(爬虫)',type:3,api:'csp_Kunyu77',searchable:1,quickSearch:1,filterable:1},
+{key:'Lezhu',name:'乐猪(爬虫)',api:'csp_Lezhu',type:3,filterable:1,quickSearch:1,searchable:1},
+{key:'看视界',name:'看视界(爬虫)',type:3,api:'csp_KanSJ',searchable:1,quickSearch:1,filterable:1},
+{key:'Coke',name:'Cokemv(不好用中)',type:3,api:'csp_Cokemv',searchable:1,quickSearch:1,filterable:1},
+{key:'Lib',name:'Libvio(爬虫)',type:3,api:'csp_Lib',searchable:1,quickSearch:1,filterable:1},
+{key:'厂长',name:'厂长(爬虫)',type:3,api:'csp_Czsapp',searchable:1,quickSearch:1,filterable:1},
+{key:'农民',name:'农民(爬虫)',type:3,api:'csp_Nmys',searchable:1,quickSearch:1,filterable:1,ext:'https://ghproxy.com/https://raw.githubusercontent.com/tv-player/tvbox-line/main/box/ext/jwkui9su.json'},
+{key:'剧荒',name:'剧荒(爬虫)',type:3,api:'csp_Juhuang',searchable:1,quickSearch:1,filterable:1},
+{key:'AppTT',name:'TT(爬虫)',type:3,api:'csp_AppTT',searchable:1,quickSearch:1,filterable:1},
+{key:'哔滴影视',name:'哔滴影视(爬虫)',type:3,api:'csp_Bdys01',searchable:1,quickSearch:1,filterable:1},
+{key:'Bttoo',name:'Bttoo(爬虫)',api:'csp_Bttoo',type:3,filterable:1,quickSearch:1,searchable:1},
+{key:'Kuaikan',name:'快看(爬虫)',type:3,api:'csp_Kuaikan',searchable:1,quickSearch:1,filterable:1},
+{key:'555',name:'555(爬虫)',type:3,api:'csp_Dy555',searchable:1,quickSearch:1,filterable:1},
+{key:'Anime1',name:'日漫(爬虫)',type:3,api:'csp_Anime1',searchable:1,quickSearch:1,filterable:1},
+{key:'QQ',name:'QQ(不好用)',type:3,api:'csp_QQ',searchable:1,quickSearch:1,filterable:1},
+{key:'IQIYI',name:'IQIYI(不好用)',type:3,api:'csp_IQIYI',searchable:1,quickSearch:1,filterable:1},
+{key:'MGTV',name:'MGTV(不好用)',type:3,api:'csp_MGTV',searchable:1,quickSearch:1,filterable:1},
+{key:'360',name:'360(不好用)',type:3,api:'csp_SP360',searchable:1,quickSearch:1,filterable:1},
+{key:'Gitcafe',name:'小纸条(爬虫)',type:3,api:'csp_Gitcafe',searchable:1,quickSearch:1,filterable:1,ext:'81461f2e9d0b4ffb86612db403824b8a'},
+{key:'zhaozy',name:'找资源(仅搜索)',type:3,api:'csp_FindZY',searchable:1,quickSearch:1,filterable:1,ext:'81461f2e9d0b4ffb86612db403824b8a'},
+{key:'AliPS',name:'盘搜(仅搜索)',type:3,api:'csp_AliPS',searchable:1,quickSearch:1,filterable:1,ext:'81461f2e9d0b4ffb86612db403824b8a'},
+{key:'Yiso',name:'一搜(仅搜索)',type:3,api:'csp_Yiso',searchable:1,quickSearch:1,filterable:0,ext:'81461f2e9d0b4ffb86612db403824b8a'},{key:'Upyunso',name:'Upyunso(仅搜索)',type:3,api:'csp_Upyunso',searchable:1,quickSearch:1,filterable:0,ext:'81461f2e9d0b4ffb86612db403824b8a'},{key:'csp_xpath_dm84',name:'动漫巴士(XP)',type:3,api:'csp_XPathFilter',searchable:1,quickSearch:1,filterable:0,ext:'https://ghproxy.com/https://raw.githubusercontent.com/tv-player/tvbox-line/main/box/ext/6lx4mz8m.json'},{key:'多多',name:'多多资源(采集)',type:1,api:'https://www.ddzyz1.com/api.php/provide/vod/',searchable:1,quickSearch:1,filterable:1,categories:['国产剧','日韩剧','港台剧','欧美剧','综艺','动漫','动作片','科幻片','战争片','喜剧片','爱情片','恐怖片','剧情片']},
+{key:'csp_XYQHiker_氢视频',name:'氢视频(XYQH)',type:3,api:'csp_XYQHiker',searchable:1,quickSearch:1,filterable:1,ext:'https://ghproxy.com/https://raw.githubusercontent.com/tv-player/tvbox-line/main/box/ext/q14fwwh0.json'},
+{key:'csp_XYQBiu_凌云影视',name:'凌云影视(XYQB)',type:3,api:'csp_XYQBiu',searchable:1,quickSearch:1,filterable:1,ext:'https://ghproxy.com/https://raw.githubusercontent.com/tv-player/tvbox-line/main/box/ext/2sj0ozbz.json'},
+{key:'csp_XBPQ极品影视',name:'极品影视(XBPQ)',type:3,api:'csp_xBPQ',searchable:1,quickSearch:1,filterable:1,ext:'https://ghproxy.com/https://raw.githubusercontent.com/tv-player/tvbox-line/main/box/ext/bvbp73q5.json'},
+{key:'Voflix',name:'Voflix(XB)',type:3,api:'csp_XBiubiu',searchable:1,quickSearch:1,filterable:0,ext:'https://ghproxy.com/https://raw.githubusercontent.com/tv-player/tvbox-line/main/box/ext/sp8olkll.json'},
+{key:'蓝光影院',name:'蓝光(XB)',type:3,api:'csp_XBiubiu',searchable:1,quickSearch:1,filterable:0,ext:'https://ghproxy.com/https://raw.githubusercontent.com/tv-player/tvbox-line/main/box/ext/pnstu84c.json'},
+{key:'ysgc',name:'影视工厂(XB)',type:3,api:'csp_XBiubiu',searchable:1,quickSearch:1,filterable:0,ext:'https://ghproxy.com/https://raw.githubusercontent.com/tv-player/tvbox-line/main/box/ext/f70ff1qj.json'},
+{key:'瓜皮',name:'瓜皮(XB)',type:3,api:'csp_XBiubiu',searchable:1,quickSearch:1,filterable:0,ext:'https://ghproxy.com/https://raw.githubusercontent.com/tv-player/tvbox-line/main/box/ext/6tubbn04.json'},
+{key:'口袋影院',name:'口袋(XB)',type:3,api:'csp_XBiubiu',searchable:1,quickSearch:1,filterable:0,ext:'https://ghproxy.com/https://raw.githubusercontent.com/tv-player/tvbox-line/main/box/ext/yx9cm4cj.json'},
+{key:'csp_xpath_libv',name:'Libvio(XP)',type:3,api:'csp_XPathMacFilter',searchable:1,quickSearch:1,filterable:1,ext:'https://ghproxy.com/https://raw.githubusercontent.com/tv-player/tvbox-line/main/box/ext/9pwr4e33.json'},
+{key:'csp_xpath_zxzj',name:'在线之家(XP)',type:3,api:'csp_XPathFilter',searchable:1,quickSearch:1,filterable:1,ext:'https://ghproxy.com/https://raw.githubusercontent.com/tv-player/tvbox-line/main/box/ext/5gf8crhs.json'},
+{key:'在线直播',name:'在线直播(爬虫)',type:3,api:'csp_Yj1211',searchable:1,quickSearch:1,filterable:1},
+{key:'Bili',name:'Bili(爬虫)',type:3,api:'csp_Bili',searchable:1,quickSearch:1,filterable:1,ext:'https://ghproxy.com/https://raw.githubusercontent.com/tv-player/tvbox-line/main/box/ext/l1i6agbi.json'},
+{key:'知识',name:'知识学堂(爬虫)',type:3,api:'csp_Bili',searchable:1,quickSearch:1,filterable:1,ext:'https://ghproxy.com/https://raw.githubusercontent.com/tv-player/tvbox-line/main/box/ext/i4mzyu2f.json'},
+{key:'儿童',name:'儿童(爬虫)',type:3,api:'csp_Bili',searchable:1,quickSearch:1,filterable:1,ext:'https://ghproxy.com/https://raw.githubusercontent.com/tv-player/tvbox-line/main/box/ext/pwv1eacg.json'},
+{key:'小学',name:'小学(爬虫)',type:3,api:'csp_Bili',searchable:1,quickSearch:1,filterable:1,ext:'https://ghproxy.com/https://raw.githubusercontent.com/tv-player/tvbox-line/main/box/ext/fbulfj1n.json'},
+{key:'初中',name:'初中(爬虫)',type:3,api:'csp_Bili',searchable:1,quickSearch:1,filterable:1,ext:'https://ghproxy.com/https://raw.githubusercontent.com/tv-player/tvbox-line/main/box/ext/4tbkx27z.json'},
+{key:'高中',name:'高中(爬虫)',type:3,api:'csp_Bili',searchable:1,quickSearch:1,filterable:1,ext:'https://ghproxy.com/https://raw.githubusercontent.com/tv-player/tvbox-line/main/box/ext/lkdt1tv3.json'},
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
         {
             "key": "csp_SP360",
             "name": "🐞360视频",
