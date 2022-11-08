@@ -1,8 +1,8 @@
 {
   "classes": [
     {
-      "type_name": "梅西",
-      "type_id": "梅西"
+      "type_name": "云星日记",
+      "type_id": "鬼畜搞笑"
     },
     {
       "type_name": "小姐姐",
@@ -36,6 +36,10 @@
       "type_name": "美食",
       "type_id": "美食超清"
     },
+    {
+      "type_name": "萌宠成长记",
+      "type_id": "萌宠成长记"
+    },    
     {
       "type_name": "体育",
       "type_id": "体育超清"
@@ -396,6 +400,7 @@
           }
         ]
       },
+
       {
         "key": "duration",
         "name": "时长",
