@@ -4,7 +4,7 @@
 
 
 {
-    "spider":"https://ghproxy.com/https://github.com/w2594190605/fuzhi/blob/main/2.jarr/Yoursmile.jar",
+    "spider":"https://ghproxy.com/https://github.com/w2594190605/fuzhi/blob/main/2.jarr/Yoursmile.jar;md5;1299A09E62C4B0EB2E1E4E38C3C318AE",
 	"wallpaper": "http://www.kf666888.cn/api/tvbox/img",
 	"lives": [{
 		"group": "redirect",
